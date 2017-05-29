@@ -6,7 +6,25 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["pomodoro-clock","javascript", "freeCodeCamp"],
+  "repository": {
+	  "type":"git",
+	  "url": "git+https://github.com/wastegas/pomodoro.git"
+  },
+  "keywords": [
+    "pomodoro-clock",
+    "javascript",
+    "freeCodeCamp"
+  ],
   "author": "Ronnie Baron <wastegas@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.28.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.1",
+    "uglifyjs-webpack-plugin": "^0.4.3",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
 }
