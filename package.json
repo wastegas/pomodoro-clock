@@ -1,0 +1,12 @@
+{
+  "name": "pomodoro-clock",
+  "version": "1.0.0",
+  "description": "Pomodoro Clock",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["pomodoro-clock","javascript", "freeCodeCamp"],
+  "author": "Ronnie Baron <wastegas@gmail.com>",
+  "license": "MIT"
+}
