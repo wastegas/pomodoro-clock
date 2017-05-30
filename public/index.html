@@ -1,17 +1,48 @@
 <!doctype html>
 <html>
 	<head>
+		<meta charset='utf-8'>
 		<link href='style.css' rel='stylesheet'>
 		<title>Pomodoro Clock</title>
 	</head>
 	<body>
-		<div id='container'>
-			<div class='inner'>
-			</div>
-			<div class='content'>
-				hello
-			</div>
-		</div>
+		<!--
+		<div class='container-fluid'>
+		-->
+			<div class='row justify-content-center'>
+				<div class='col-xs-4 break-sec'>
+					<p>Break Time</p>
+					<button type='button' class='btn btn-danger dec-break'>-</button>
+					<span id='break'>0</span>
+					<button type='button' class='btn btn-success inc-break'>+</button>
+				</div>
+				<div class='col-xs-4'></div>
+				<div class='col-xs-4 work-sec'>
+					<p>Work Time</p>
+					<button type='button'  class='btn btn-danger dec-work'>-</button>
+					<span id='work'>0</span>
+					<button type='button'  class='btn btn-success inc-work'>+</button>
+				</div>
+			</div> <!-- row -->
+			<div class='row justify-content-center'>
+				<div class='col-xs-4'>
+				</div>
+				<div class='col-xs-4'>
+					<div id='timer'>
+						<div class='inner'>
+						</div>
+						<p  id='time-remain' class='content'>
+							0
+						</p>
+					</div>
+				</div>
+				<div class='col-xs-4'>
+				</div>
+				</div> <!-- col -->
+			</div> <!-- row -->
+			<!--
+		</div> 
+			-->
 		<script src='bundle.js'></script>
 	</body>
 </html>
