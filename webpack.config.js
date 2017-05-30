@@ -4,7 +4,7 @@ const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 let config = {
-	entry: './src/index.js',
+	entry: ['bootstrap-loader','./src/index.js'],
 	output: {
 		path: path.resolve(__dirname, './public'),
 		filename: 'bundle.js'
@@ -22,6 +22,18 @@ let config = {
 					use: ['css-loader','sass-loader'],
 					fallback: 'style-loader'
 				})
+			},
+			{
+				test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				use: 'url-loader?limit=10000',
+			},
+			{
+				test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+				use: 'file-loader'
+			},
+			{
+				test: /bootstrap-sass\/assets\/javascripts\//,
+				use: 'imports-loader?jQuery=jquery'
 			},
 		]
 	},
