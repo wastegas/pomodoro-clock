@@ -34,7 +34,13 @@ $(document).ready(function() {
 		}
 	})
 
+
 	$('#timer').click(function() {
-		$('.inner').slideDown('slow')
+		var duration = parseInt($('span:last').text());
+		console.log(duration);
+		var durSecs = duration * 60000;
+		$('.inner').animate({
+			height: "100%"
+		}, durSecs)
 	})
 })
