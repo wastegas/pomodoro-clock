@@ -1,3 +1,4 @@
+import moment from 'moment';
 import './style.scss';
 
 $(document).ready(function() {
@@ -25,15 +26,16 @@ $(document).ready(function() {
 					break;
 				}
 				$('span:last').html(newVal);
+				$('.content').html(newVal);
 				break;
 			case 3:
 				curVal = $('span:last').text();
 				newVal = parseInt(curVal) + 1;
 				$('span:last').html(newVal);
+				$('.content').html(newVal);
 				break;
 		}
 	})
-
 
 	let running = false;
 	let intervalId;
@@ -41,7 +43,7 @@ $(document).ready(function() {
 	$('#timer').click(function() {
 		running = !running;
 		function loop() {
-			let duration = parseInt($('span:last').text());
+			let duration = parseInt($('.content').text());
 			let workDur = duration * 60000;
 			duration = parseInt($('span:first').text());
 			let breakDur = duration * 60000;
@@ -71,9 +73,9 @@ $(document).ready(function() {
 	function updateContent(duration) {
 		let  content = duration / 1000;
 		intervalId = setInterval(function() {
-			$('.content').html(content);
-			console.log(--content);
-			if (parseInt(content) === 0){
+			const strTime = moment('1900-01-01 00:00:00').add(--content, 'seconds').format('HH:mm:ss');
+			$('.content').html(strTime);
+			if (content === 0){
 				clearInterval(intervalId);
 			}
 		}, 1000)
