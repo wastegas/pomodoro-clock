@@ -11,7 +11,7 @@ $(document).ready(function() {
 			case 1:
 				curVal = $('#brkTime').text();
 				newVal = parseInt(curVal) - 1;
-				if (newVal < 0) { 
+				if (newVal < 1) { 
 					break;
 				}
 				$('#brkTime').html(newVal);
@@ -24,7 +24,7 @@ $(document).ready(function() {
 			case 3:
 				curVal = $('#sessTime').text();
 				newVal = parseInt(curVal) - 1;
-				if (newVal < 0) {
+				if (newVal < 1) {
 					break;
 				}
 				$('#sessTime').html(newVal);
