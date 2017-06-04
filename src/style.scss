@@ -41,8 +41,8 @@ span {
 	border-radius: 50%;
 	border-style: solid;
 	border-color: $body-bgrnd;
-	width: 300px;
-	height: 300px;
+	width: 420px;
+	height: 420px;
 	overflow: hidden;
 	box-shadow: 0 0 4px $clock-bgrnd;
 	position: relative;
@@ -60,7 +60,7 @@ span {
 
 .content {
 	font-family: $pstart;
-	font-size: 40px;
+	font-size: 30px;
 	color: white;
 	z-index: 9;
 	position: relative;
@@ -80,4 +80,14 @@ span {
 
 .inner.newColor {
 	background: green;
+}
+
+.source {
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 250px;
+}
+
+.source a {
+	color: white;
 }
