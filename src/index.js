@@ -69,6 +69,7 @@ $(document).ready(function() {
 			clearInterval(intervalId);
 			$('.inner').stop({clearQueue: true});	
 			$('.inner').attr('style','');
+			$('.session').html('Click to start');
 		}
 	})
 	function updateContent(duration, curSession) {
