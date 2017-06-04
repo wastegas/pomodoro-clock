@@ -35,12 +35,33 @@ $(document).ready(function() {
 	})
 
 
+	var running = false;
+
 	$('#timer').click(function() {
-		var duration = parseInt($('span:last').text());
-		console.log(duration);
-		var durSecs = duration * 60000;
-		$('.inner').animate({
-			height: "100%"
-		}, durSecs)
+		running = !running;
+		function loop() {
+			var duration = parseInt($('span:last').text());
+			var workDur = duration * 6000;
+			duration = parseInt($('span:first').text());
+			var breakDur = duration * 6000;
+			$('.inner')
+			.queue(function() {
+				$(this).toggleClass('newColor').dequeue();
+			})
+			.animate({height: "100%"}, workDur) 
+			.queue(function() {
+				$(this).toggleClass('newColor').dequeue();
+			})
+			.animate({height: '0px'}, breakDur, 'linear', function() {
+				loop()
+			});
+		}
+		if (running) {
+			loop();
+		} else {
+			$('.inner').stop({clearQueue: true});	
+			$('.inner').attr('style','');
+		}
+			
 	})
 })
