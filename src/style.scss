@@ -3,7 +3,15 @@
 
 $roboto: 'Roboto', sans-serif;
 $pstart: 'Press Start 2P', cursive;
+$body-bgrnd: rgb(67, 57, 55);
+$clock-bgrnd: rgb(187, 251, 3);
 
+* { box-sizing: border-box; }
+
+body {
+	background: $body-bgrnd !important;
+	color: white !important;
+}
 
 span {
 	font-family: $roboto;
@@ -18,6 +26,7 @@ span {
 #pomodoro {
 	padding-top: 100px;
 	width: 700px;
+	height: 100%;
 }
 
 .break-sec {
@@ -31,15 +40,17 @@ span {
 #timer {
 	border-radius: 50%;
 	border-style: solid;
+	border-color: $body-bgrnd;
 	width: 300px;
 	height: 300px;
 	overflow: hidden;
-	color: black;
+	box-shadow: 0 0 4px $clock-bgrnd;
 	position: relative;
 }
 
 .session {
 	font-family: $roboto;
+	color: white;
 	font-size: 30px;
 	z-index: 10;
 	position: relative;
@@ -50,6 +61,7 @@ span {
 .content {
 	font-family: $pstart;
 	font-size: 40px;
+	color: white;
 	z-index: 9;
 	position: relative;
 	padding-top: 20%;
@@ -59,7 +71,7 @@ span {
 .inner {
 	width: 100%;
 	height: 0px;
-	background: red;
+	background: $clock-bgrnd;
 	position: absolute;
 	top: 0px;
 	left: 0px;
