@@ -43,7 +43,7 @@ $(document).ready(function() {
 	$('#timer').click(function() {
 		running = !running;
 		function loop() {
-			let duration = parseInt($('.content').text());
+			let duration = parseInt($('span:last').text());
 			let workDur = duration * 60000;
 			duration = parseInt($('span:first').text());
 			let breakDur = duration * 60000;
@@ -67,13 +67,14 @@ $(document).ready(function() {
 			clearInterval(intervalId);
 			$('.inner').stop({clearQueue: true});	
 			$('.inner').attr('style','');
-			$('content').html('');
 		}
 	})
 	function updateContent(duration) {
 		let  content = duration / 1000;
 		intervalId = setInterval(function() {
-			const strTime = moment('1900-01-01 00:00:00').add(--content, 'seconds').format('HH:mm:ss');
+			const strTime = moment('1900-01-01 00:00:00')
+							.add(--content, 'seconds')
+							.format('mm:ss');
 			$('.content').html(strTime);
 			if (content === 0){
 				clearInterval(intervalId);
