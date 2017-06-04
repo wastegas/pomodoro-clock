@@ -57,7 +57,7 @@ module.exports = config;
 
 if (process.env.NODE_ENV === 'production') {
 	module.exports.plugins.push(
-		new webpack.optimize.UglyfiJsPlugin()
+		new webpack.optimize.UglifyJsPlugin()
 	);
 
 }
