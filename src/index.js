@@ -2,8 +2,8 @@ import './style.scss';
 
 $(document).ready(function() {
 	$('button').click(function() {
-		var curVal;
-		var newVal;
+		let curVal;
+		let  newVal;
 		switch ($('button').index(this)) {
 			case 0:
 				curVal = $('span:first').text();
@@ -35,23 +35,26 @@ $(document).ready(function() {
 	})
 
 
-	var running = false;
+	let running = false;
+	let intervalId;
 
 	$('#timer').click(function() {
 		running = !running;
 		function loop() {
-			var duration = parseInt($('span:last').text());
-			var workDur = duration * 6000;
+			let duration = parseInt($('span:last').text());
+			let workDur = duration * 60000;
 			duration = parseInt($('span:first').text());
-			var breakDur = duration * 6000;
+			let breakDur = duration * 60000;
+			updateContent(workDur);
 			$('.inner')
 			.queue(function() {
 				$(this).toggleClass('newColor').dequeue();
 			})
-			.animate({height: "100%"}, workDur) 
+			.animate({height: "100%"}, workDur, 'linear', function() {
+					updateContent(breakDur)}) 
 			.queue(function() {
 				$(this).toggleClass('newColor').dequeue();
-			})
+			}) 
 			.animate({height: '0px'}, breakDur, 'linear', function() {
 				loop()
 			});
@@ -59,9 +62,20 @@ $(document).ready(function() {
 		if (running) {
 			loop();
 		} else {
+			clearInterval(intervalId);
 			$('.inner').stop({clearQueue: true});	
 			$('.inner').attr('style','');
+			$('content').html('');
 		}
-			
 	})
+	function updateContent(duration) {
+		let  content = duration / 1000;
+		intervalId = setInterval(function() {
+			$('.content').html(content);
+			console.log(--content);
+			if (parseInt(content) === 0){
+				clearInterval(intervalId);
+			}
+		}, 1000)
+	}
 })
