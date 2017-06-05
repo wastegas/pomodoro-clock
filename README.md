@@ -12,3 +12,9 @@ Start Dev Server
 ```
 npm run start
 ```
+
+Compile
+-------
+```
+npm run production
+```
